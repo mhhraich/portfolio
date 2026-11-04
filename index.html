@@ -1,727 +1,487 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Mohamed Hraich - Full-Stack Developer specializing in Odoo, Flutter, and biometric systems.">
-    <title>Mohamed Hraich - Full-Stack Developer Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <style>
-        :root {
-            --primary: #4a6cf7;
-            --primary-dark: #3a5ce5;
-            --secondary: #6c757d;
-            --dark: #1d2144;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --danger: #dc3545;
-            --warning: #ffc107;
-            --info: #17a2b8;
-            --transition: all 0.3s ease;
-            --border-radius: 8px;
-            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            --box-shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed Hraich · Portfolio</title>
+<meta name="description" content="Mohamed Hraich — Full-Stack & Odoo developer in Casablanca. SaaS products (Medix, Rental Car, Paie Maroc), Odoo Apps Store modules, Flutter apps and biometric integrations.">
+<meta property="og:title" content="Mohamed Hraich · Full-Stack & Odoo Developer">
+<meta property="og:description" content="SaaS products, Odoo Apps Store modules, Spring Boot APIs, Flutter apps and biometric integrations.">
+<meta property="og:image" content="./1732047610472.jpeg">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%234f46e5'/><text x='50%' y='54%' font-family='Arial' font-weight='700' font-size='28' fill='white' text-anchor='middle' dominant-baseline='middle'>MH</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --bg:#f7f8fc; --bg-alt:#eef0f8; --surface:#ffffff; --text:#151833; --muted:#5b6080;
+  --border:#e2e5f0; --accent:#4f46e5; --accent-2:#0ea5e9; --accent-soft:#eef0ff;
+  --ok:#059669; --shadow:0 1px 2px rgba(20,24,60,.06),0 8px 24px rgba(20,24,60,.06);
+  --radius:16px; --maxw:1140px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b0d1a; --bg-alt:#11142a; --surface:#151935; --text:#e8eaf6; --muted:#9aa0c3;
+    --border:#252a4d; --accent:#818cf8; --accent-2:#38bdf8; --accent-soft:#1e2250;
+    --ok:#34d399; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b0d1a; --bg-alt:#11142a; --surface:#151935; --text:#e8eaf6; --muted:#9aa0c3;
+  --border:#252a4d; --accent:#818cf8; --accent-2:#38bdf8; --accent-soft:#1e2250;
+  --ok:#34d399; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #333;
-            line-height: 1.6;
-            transition: var(--transition);
-            overflow-x: hidden;
-        }
-        body.dark-mode {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: #ecf0f1;
-        }
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        header {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 100px 20px 80px;
-            text-align: center;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%234a6cf7" fill-opacity="0.2" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
-        }
-        header h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5em;
-            margin: 0;
-            animation: fadeIn 1.5s;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        header p {
-            font-size: 1.4em;
-            margin: 20px 0;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid rgba(255, 255, 255, 0.3);
-            margin: 0 auto 30px;
-            overflow: hidden;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: #666;
-        }
-        #typing {
-            border-right: 2px solid white;
-            animation: blink 1s infinite;
-            display: inline-block;
-            min-height: 1.4em;
-        }
-        .cta-button {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 30px;
-            transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(74, 108, 247, 0.4);
-        }
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 108, 247, 0.6);
-        }
-        nav {
-            background: rgba(29, 33, 68, 0.95);
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        nav a {
-            color: white;
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-            padding: 5px 0;
-        }
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-        nav a:hover {
-            color: var(--primary);
-        }
-        nav a:hover::after {
-            width: 100%;
-        }
-        .menu-toggle {
-            display: none;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 1.2em;
-        }
-        section {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: var(--box-shadow);
-            backdrop-filter: blur(10px);
-            transition: var(--transition);
-        }
-        body.dark-mode section {
-            background: rgba(29, 33, 68, 0.95);
-            color: #ecf0f1;
-        }
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--box-shadow-hover);
-        }
-        h2 {
-            color: var(--primary);
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 15px;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        h2 i {
-            margin-right: 10px;
-        }
-        .skill-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-        .skill-card {
-            background: white;
-            padding: 25px 20px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--box-shadow);
-            border-top: 4px solid var(--primary);
-        }
-        body.dark-mode .skill-card {
-            background: rgba(44, 62, 80, 0.7);
-        }
-        .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--box-shadow-hover);
-        }
-        .skill-card i {
-            font-size: 3em;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .skill-card h3 {
-            margin: 15px 0;
-            font-size: 1.3em;
-        }
-        .progress-bar {
-            background: #e9ecef;
-            border-radius: 10px;
-            height: 12px;
-            margin-top: 15px;
-            overflow: hidden;
-        }
-        body.dark-mode .progress-bar {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .progress-fill {
-            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-            height: 100%;
-            border-radius: 10px;
-            position: relative;
-            transition: width 1.5s ease-in-out;
-        }
-        .progress-fill::after {
-            content: attr(data-percent);
-            position: absolute;
-            right: 10px;
-            top: -25px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-        .experience-card, .project-card {
-            background: white;
-            margin: 25px 0;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            border-left: 4px solid var(--primary);
-        }
-        body.dark-mode .experience-card, 
-        body.dark-mode .project-card {
-            background: rgba(44, 62, 80, 0.7);
-        }
-        .experience-card:hover, .project-card:hover {
-            transform: translateX(10px);
-            box-shadow: var(--box-shadow-hover);
-        }
-        .experience-card h3, .project-card h3 {
-            color: var(--primary);
-            margin-top: 0;
-            font-size: 1.4em;
-        }
-        .experience-card .date {
-            color: var(--secondary);
-            font-style: italic;
-            margin-bottom: 15px;
-            display: block;
-        }
-        .project-links {
-            margin-top: 15px;
-        }
-        .project-links a {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            margin-right: 10px;
-            font-size: 0.9em;
-            transition: var(--transition);
-        }
-        .project-links a:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-        .contact {
-            text-align: center;
-        }
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            background: white;
-            padding: 15px 25px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-        }
-        body.dark-mode .contact-item {
-            background: rgba(44, 62, 80, 0.7);
-        }
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--box-shadow-hover);
-        }
-        .contact-item i {
-            font-size: 1.5em;
-            color: var(--primary);
-            margin-right: 15px;
-        }
-        .contact a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .contact a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-        .social-links {
-            margin-top: 30px;
-        }
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            margin: 0 10px;
-            font-size: 1.3em;
-            transition: var(--transition);
-        }
-        .social-links a:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-        .dark-mode-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 200;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-        .dark-mode-toggle:hover {
-            transform: rotate(15deg);
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: rgba(29, 33, 68, 0.95);
-            color: white;
-            margin-top: 60px;
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 1.2em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-            z-index: 100;
-            opacity: 0;
-            visibility: hidden;
-        }
-        .back-to-top.active {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-to-top:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px);
-        }
-        @media (max-width: 768px) {
-            header {
-                padding: 80px 20px 60px;
-            }
-            header h1 {
-                font-size: 2.5em;
-            }
-            header p {
-                font-size: 1.2em;
-            }
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-            .menu-toggle {
-                display: block;
-                margin: 0 auto;
-            }
-            #nav-links {
-                display: none;
-                flex-direction: column;
-            }
-            #nav-links.show {
-                display: flex;
-            }
-            section {
-                padding: 25px;
-                margin: 40px 20px;
-            }
-            h2 {
-                font-size: 1.8em;
-            }
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-            .contact-item {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes blink {
-            0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: white; }
-        }
-    </style>
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{font-weight:800;color:var(--text);letter-spacing:-.02em}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:4px;align-items:center}
+.links a{color:var(--muted);font-weight:500;font-size:.94rem;padding:8px 12px;border-radius:10px}
+.links a:hover{color:var(--text);background:var(--bg-alt);text-decoration:none}
+.icon-btn{border:1px solid var(--border);background:var(--surface);color:var(--text);width:40px;height:40px;border-radius:10px;cursor:pointer;display:inline-grid;place-items:center;font-size:1rem}
+.menu-btn{display:none}
+@media (max-width:860px){
+  .menu-btn{display:inline-grid}
+  .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--surface);border-bottom:1px solid var(--border);padding:8px 16px 16px;display:none}
+  .links.open{display:flex}
+}
+
+/* hero */
+.hero{padding:72px 0 56px;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 300px at 85% 10%,color-mix(in srgb,var(--accent) 18%,transparent),transparent 70%),radial-gradient(500px 260px at 0% 90%,color-mix(in srgb,var(--accent-2) 14%,transparent),transparent 70%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:center;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:600;color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent);padding:6px 12px;border-radius:999px}
+.eyebrow i{font-size:.55rem}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.08;letter-spacing:-.035em;margin:18px 0 14px;font-weight:800}
+h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;color:var(--muted);max-width:620px;margin:0 0 28px}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid var(--border);color:var(--text);background:var(--surface)}
+.btn:hover{text-decoration:none;border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.primary:hover{filter:brightness(1.08)}
+.avatar{justify-self:center;position:relative;width:min(300px,70vw);aspect-ratio:1}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:28px;border:1px solid var(--border);box-shadow:var(--shadow)}
+.avatar .badge{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);background:var(--surface);border:1px solid var(--border);padding:8px 14px;border-radius:12px;font-size:.85rem;font-weight:600;white-space:nowrap;box-shadow:var(--shadow)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;position:relative}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+.stat b{display:block;font-size:1.7rem;letter-spacing:-.03em}
+.stat span{color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.avatar{order:-1;width:180px}.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* sections */
+section{padding:72px 0}
+section.alt{background:var(--bg-alt)}
+.sec-head{margin-bottom:32px}
+.sec-head .kicker{font-family:"JetBrains Mono",monospace;color:var(--accent);font-size:.85rem}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem);letter-spacing:-.03em;margin:6px 0 8px}
+.sec-head p{color:var(--muted);margin:0;max-width:680px}
+
+/* filters + projects */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{border:1px solid var(--border);background:var(--surface);color:var(--muted);padding:8px 14px;border-radius:999px;font-weight:600;font-size:.88rem;cursor:pointer}
+.chip.active,.chip:hover{color:#fff;background:var(--accent);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(320px,100%),1fr));gap:20px}
+@media (max-width:400px){.grid{grid-template-columns:1fr}}
+.card{min-width:0;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 40%,var(--border))}
+.card.featured{grid-column:span 2}
+@media (max-width:760px){.card.featured{grid-column:auto}}
+.card-top{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
+.card-top>div:nth-child(2){flex:1;min-width:0}
+.ico{flex:none;width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem;color:var(--accent);background:var(--accent-soft)}
+.card h3{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+.card .sub{color:var(--muted);font-size:.88rem;margin-top:2px}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.card ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}
+.card ul li{margin:3px 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.tag{font-family:"JetBrains Mono",monospace;font-size:.75rem;padding:4px 8px;border-radius:6px;background:var(--bg-alt);color:var(--muted);border:1px solid var(--border)}
+.card-links{display:flex;flex-wrap:wrap;gap:14px;font-size:.9rem;font-weight:600}
+.status{font-size:.75rem;font-weight:700;padding:3px 8px;border-radius:999px;margin-left:auto;white-space:nowrap}
+.status.live{color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.status.store{color:var(--accent);background:var(--accent-soft)}
+.status.prod{color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 14%,transparent)}
+.hidden{display:none!important}
+
+/* experience timeline */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:22px}
+.tl-item::before{content:"";position:absolute;left:-27px;top:24px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg-alt)}
+.tl-item .card:hover{transform:none}
+.tl-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.tl-meta .date{font-family:"JetBrains Mono",monospace;font-size:.82rem;color:var(--muted)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.skill-group h3{margin:0 0 12px;font-size:1rem;display:flex;align-items:center;gap:10px}
+.skill-group h3 i{color:var(--accent)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{padding:6px 12px;border-radius:999px;background:var(--bg-alt);border:1px solid var(--border);font-size:.88rem;font-weight:500}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
+
+/* contact */
+.contact{text-align:center}
+.contact .sec-head p{margin:0 auto}
+.contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:8px}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:.9rem;text-align:center}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
 </head>
 <body>
-    <div id="particles-js"></div>
-    <button class="dark-mode-toggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
-    <a href="#" class="back-to-top"><i class="fas fa-arrow-up"></i></a>
-    
-    <header>
-        <div class="profile-img">
-            <img src="./1732047610472.jpeg" width="100%" alt="" srcset="">
-        </div>
-        <h1>Mohamed Hraich</h1>
-        <p id="typing"></p>
-        <a href="#contact" class="cta-button" onclick="smoothScroll('#contact')">Get In Touch</a>
-    </header>
-    
-    <nav>
-        <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-        <div id="nav-links">
-            <a href="#about" onclick="smoothScroll('#about')">About Me</a>
-            <a href="#skills" onclick="smoothScroll('#skills')">Skills</a>
-            <a href="#experience" onclick="smoothScroll('#experience')">Experience</a>
-            <a href="#projects" onclick="smoothScroll('#projects')">Projects</a>
-            <a href="#education" onclick="smoothScroll('#education')">Education</a>
-            <a href="#contact" onclick="smoothScroll('#contact')">Contact</a>
-        </div>
-    </nav>
 
-    <section id="about" data-aos="fade-up">
-        <h2><i class="fas fa-user"></i> About Me</h2>
-        <div class="about-content">
-            <p><strong>Location:</strong> Res El Mostakbal, GH30, IMM 269, Nr. 6, Sidi Maarouf, Casablanca, Morocco</p>
-            <p><strong>Date of Birth:</strong> 02/08/1999</p>
-            <p>Passionate Full-Stack Developer with over 5 years of experience in web and mobile application development. Specialized in Python, C#, PHP, and JavaScript, with extensive expertise in Odoo environments (versions 12 to 18), PrestaShop, Flutter, and external system integration.</p>
-            <p>Known for building robust technical solutions, optimizing performance, and integrating complex biometric devices—including the development of a fingerprint attendance system in C# to synchronize 16 biometric machines with a remote Odoo server via WebSocket.</p>
-        </div>
-    </section>
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">Mohamed<span>.</span>Hraich</a>
+    <div class="links" id="links">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="icon-btn" id="theme" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button>
+      <button class="icon-btn menu-btn" id="menu" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
 
-    <section id="skills" data-aos="fade-up">
-        <h2><i class="fas fa-tools"></i> Technical Skills</h2>
-        <div class="skill-grid">
-            <div class="skill-card">
-                <i class="fab fa-python"></i>
-                <h3>Python</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="95%" style="width: 95%;"></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-js"></i>
-                <h3>JavaScript</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="90%" style="width: 90%;"></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>Flutter</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="85%" style="width: 85%;"></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fas fa-database"></i>
-                <h3>Odoo</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="92%" style="width: 92%;"></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-php"></i>
-                <h3>PHP</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="80%" style="width: 80%;"></div></div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-git-alt"></i>
-                <h3>Git</h3>
-                <div class="progress-bar"><div class="progress-fill" data-percent="88%" style="width: 88%;"></div></div>
-            </div>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow"><i class="fa-solid fa-circle"></i> Open to freelance &amp; consulting</span>
+        <h1>Full-Stack &amp; Odoo developer building <span class="grad">SaaS products</span> that ship.</h1>
+        <p class="lead">I'm Mohamed Hraich, a developer based in Casablanca with 5+ years of experience. I build Odoo modules (v12 → v19) sold on the Odoo Apps Store, Spring Boot + web SaaS platforms, Flutter mobile apps, and integrations with biometric devices and e-commerce platforms.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects"><i class="fa-solid fa-rocket"></i> See my projects</a>
+          <a class="btn" href="https://www.linkedin.com/in/mohamed-hraich-c24661175" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="btn" href="https://github.com/mhhraich" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
         </div>
-        <div class="languages">
-            <h3>Languages</h3>
-            <p><strong>Arabic</strong> (Native), <strong>French</strong> (Fluent C1), <strong>English</strong> (Fluent C1)</p>
+      </div>
+      <div class="avatar">
+        <img src="./1732047610472.jpeg" alt="Portrait of Mohamed Hraich">
+        <div class="badge">📍 Casablanca, Morocco</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>5+</b><span>years of experience</span></div>
+      <div class="stat"><b>12 → 19</b><span>Odoo versions mastered</span></div>
+      <div class="stat"><b>4</b><span>SaaS products launched</span></div>
+      <div class="stat"><b>3</b><span>commercial Odoo modules</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// projects</div>
+      <h2>Projects I've released</h2>
+      <p>SaaS products running in production, commercial Odoo modules, and integrations built for clients. Most source code is private; demos are available on request.</p>
+    </div>
+    <div class="filters" role="tablist">
+      <button class="chip active" data-f="all">All</button>
+      <button class="chip" data-f="saas">SaaS products</button>
+      <button class="chip" data-f="odoo">Odoo modules</button>
+      <button class="chip" data-f="integration">Integrations</button>
+      <button class="chip" data-f="mobile">Mobile</button>
+      <button class="chip" data-f="devops">DevOps</button>
+    </div>
+
+    <div class="grid" id="project-grid">
+
+      <article class="card featured reveal" data-cat="saas">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-user-doctor"></i></div>
+          <div><h3>Medix — Clinic &amp; Patient Management SaaS</h3><div class="sub">Multi-tenant platform for doctors and clinics</div></div>
+          <span class="status live">Live</span>
         </div>
-    </section>
+        <p>A SaaS where each doctor gets their own workspace and custom domain, with patients, appointments and a secretary role. Staff provision new doctors, assign domains and start/stop workspaces from an admin dashboard.</p>
+        <ul>
+          <li>Per-doctor domains with on-demand HTTPS certificates</li>
+          <li>Patient self-registration with email confirmation, roles for doctor / secretary / admin</li>
+          <li>Deployed with Docker Compose on Oracle Linux behind a Caddy reverse proxy</li>
+        </ul>
+        <div class="tags"><span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">Docker</span><span class="tag">Multi-tenant</span></div>
+      </article>
 
-    <section id="experience" data-aos="fade-up">
-        <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
-        <div class="experience-card">
-            <h3>Odoo and Mobile Consultant</h3>
-            <span class="date">MUMUSO Morocco | March 2024 – Present</span>
-            <ul>
-                <li>Advanced development in Python, XML, and JavaScript within Odoo.</li>
-                <li>Design and integration of RESTful APIs.</li>
-                <li>Full development of a multi-device biometric attendance system using C# and WebSocket.</li>
-                <li>Optimization of business processes through custom Odoo module development.</li>
-            </ul>
+      <article class="card reveal" data-cat="saas">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-car"></i></div>
+          <div><h3>Rental Car — SaaS for Rental Agencies</h3><div class="sub">Agency workspaces + public booking site</div></div>
+          <span class="status live">Live</span>
         </div>
-        <div class="experience-card">
-            <h3>Odoo and Mobile Developer</h3>
-            <span class="date">IT ADVISOR | February 2021 – March 2024</span>
-            <ul>
-                <li>Development and maintenance of Odoo modules for various business needs.</li>
-                <li>Cross-platform mobile apps with Flutter for iOS and Android.</li>
-                <li>API management for third-party integrations and system interoperability.</li>
-                <li>Customization of PrestaShop e-commerce solutions.</li>
-            </ul>
+        <p>Each car rental agency gets a private workspace to manage its fleet and bookings; customers search and rent cars by city, category and transmission from the public site.</p>
+        <div class="card-links"><a href="https://rental.mhhraich.online" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> rental.mhhraich.online</a></div>
+        <div class="tags"><span class="tag">Spring Boot 4</span><span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="saas odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-money-check-dollar"></i></div>
+          <div><h3>MH Paie Maroc — Moroccan Payroll SaaS</h3><div class="sub">Odoo 18 payroll, computed as a service</div></div>
+          <span class="status prod">SaaS</span>
         </div>
-        <div class="experience-card">
-            <h3>Web Developer</h3>
-            <span class="date">Freelance | 2019 – 2021</span>
-            <ul>
-                <li>Development of responsive websites using HTML, CSS, JavaScript, and PHP.</li>
-                <li>WordPress theme customization and plugin development.</li>
-                <li>E-commerce solutions implementation and maintenance.</li>
-            </ul>
+        <p>Moroccan payroll sold as SaaS: clients enter employees, contracts and payslips in their Odoo, while salary rules run on the editor's server through a secured REST API (API keys, call logs).</p>
+        <ul>
+          <li>2025/2026 rules: IR table, CNSS, AMO, CIMR, overtime, leave — every rate a dated parameter</li>
+          <li>CI/CD with GitHub Actions: tests, DB backups, automatic upgrade &amp; rollback</li>
+        </ul>
+        <div class="tags"><span class="tag">Odoo 18</span><span class="tag">Python</span><span class="tag">REST API</span><span class="tag">GitHub Actions</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="saas">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-film"></i></div>
+          <div><h3>Kids Video Studio</h3><div class="sub">AI-generated videos for children</div></div>
+          <span class="status live">Released</span>
         </div>
-    </section>
+        <p>Type any idea and the AI writes a script, then renders a 1080p kids video with animated 3D emoji characters, subtitles, a child narrator voice, music and sound effects. Supports 11 languages including Moroccan Darija, and can publish to YouTube on autopilot.</p>
+        <div class="card-links"><a href="https://github.com/mhhraich/kids-video-studio" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Project page</a></div>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Gemini AI</span><span class="tag">TTS</span><span class="tag">Video rendering</span><span class="tag">YouTube API</span></div>
+      </article>
 
-    <section id="projects" data-aos="fade-up">
-        <h2><i class="fas fa-project-diagram"></i> Key Projects</h2>
-        <div class="project-card">
-            <h3>Biometric Attendance System</h3>
-            <p>Multi-device system in C# with WebSocket for syncing 16 biometric machines with Odoo server. Features real-time data synchronization, user management, and comprehensive reporting.</p>
-        
+      <article class="card reveal" data-cat="odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-table-list"></i></div>
+          <div><h3>One2many &amp; Many2many Toolbox</h3><div class="sub">mh_x2many_toolbox · Odoo 16 → 19</div></div>
+          <span class="status store">Apps Store</span>
         </div>
-        <div class="project-card">
-            <h3>Odoo Modules and APIs</h3>
-            <p>Custom modules and RESTful integrations for Odoo versions 12-18. Includes inventory management, HR modules, and financial reporting enhancements.</p>
+        <p>Adds a search box, a line counter and a full-screen button above every one2many / many2many list — sale, purchase, invoice, BoM and picking lines.</p>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=mh_x2many_toolbox" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> Odoo Apps Store</a></div>
+        <div class="tags"><span class="tag">Odoo OWL</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">SCSS</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-file-invoice"></i></div>
+          <div><h3>Morocco Payment Delays Declaration</h3><div class="sub">l10n_ma_payment_delay_dgi · Odoo 16 → 19</div></div>
+          <span class="status store">Apps Store</span>
         </div>
-        <div class="project-card">
-            <h3>E-commerce Mobile App</h3>
-            <p>Flutter-based mobile application for online shopping with features like product catalog, shopping cart, payment integration, and order tracking.</p>
+        <p>Builds the quarterly/annual DGI payment delays declaration (Loi 69-21) from vendor bills and payments, with estimated fines and XML (EDI), Excel and PDF exports for SIMPL.</p>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=l10n_ma_payment_delay_dgi" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> Odoo Apps Store</a></div>
+        <div class="tags"><span class="tag">Odoo</span><span class="tag">Python</span><span class="tag">Accounting</span><span class="tag">XML EDI</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-ship"></i></div>
+          <div><h3>Customs Duty by HS Code — Landed Costs</h3><div class="sub">landed_cost_customs_duty · Odoo 15 → 19</div></div>
+          <span class="status store">Odoo module</span>
         </div>
-    </section>
+        <p>Import customs duty per product (HS code tariffs, preferential origin rates), customs declaration on receipts and automatic landed-cost split by duty. Community &amp; Enterprise.</p>
+                <div class="tags"><span class="tag">Odoo</span><span class="tag">Inventory</span><span class="tag">Landed costs</span></div>
+      </article>
 
-    <section id="education" data-aos="fade-up">
-        <h2><i class="fas fa-graduation-cap"></i> Education</h2>
-        <div class="experience-card">
-            <h3>Professional Bachelor's Degree in Web and Mobile Development</h3>
-            <span class="date">University of Kénitra | 2019 – 2020</span>
-            <p>Specialized in modern web technologies, mobile application development, and software engineering principles.</p>
+      <article class="card reveal" data-cat="integration">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-fingerprint"></i></div>
+          <div><h3>Biometric Attendance System</h3><div class="sub">Hikvision ↔ Odoo sync · MUMUSO Morocco</div></div>
+          <span class="status prod">Production</span>
         </div>
-        <div class="experience-card">
-            <h3>Specialized Technician in Computer Development</h3>
-            <span class="date">OFPPT | 2017 – 2019</span>
-            <p>Focused on software development, database management, and computer systems architecture.</p>
+        <p>Windows service in C# that synchronizes 16 Hikvision fingerprint terminals with a remote Odoo server over WebSocket: fingerprint capture, user enrolment, local SQLite buffer and real-time attendance sync.</p>
+        <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">WebSocket</span><span class="tag">SQLite</span><span class="tag">Odoo HR</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="integration odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-brands fa-shopify"></i></div>
+          <div><h3>Shopify &amp; WooCommerce ↔ Odoo</h3><div class="sub">E-commerce connectors</div></div>
+          <span class="status prod">Production</span>
         </div>
-        <div class="experience-card">
-            <h3>High School Diploma in Physical and Chemical Sciences</h3>
-            <span class="date">Lycée Al Wahda, Khenichat | 2016 – 2017</span>
-            <p>Graduated with honors in scientific studies.</p>
+        <p>Connecting Odoo with online stores (Shopify, WooCommerce, PrestaShop) to keep products, stock and orders in sync, using background job queues for reliable imports and exports.</p>
+        <div class="tags"><span class="tag">Odoo</span><span class="tag">Shopify API</span><span class="tag">WooCommerce</span><span class="tag">queue_job</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="odoo">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-cubes"></i></div>
+          <div><h3>Custom ERP Modules for Clients</h3><div class="sub">Odoo 12 → 18</div></div>
         </div>
-    </section>
+        <p>Business modules delivered for retail, distribution and manufacturing: transport management, MRP &amp; production, payroll, POS cash drawer, sale signature, stock/sale extensions, custom reporting and data migration scripts between versions.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">XML</span><span class="tag">OWL / JS</span><span class="tag">QWeb</span><span class="tag">PostgreSQL</span></div>
+      </article>
 
-    <section id="contact" class="contact" data-aos="fade-up">
-        <h2><i class="fas fa-envelope"></i> Contact Information</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>06 11 42 10 20</span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span><a href="mailto:mhhraich@gmail.com">mhhraich@gmail.com</a></span>
-            </div>
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Res El Mostakbal, GH30, IMM 269, Nr. 6, Sidi Maarouf, Casablanca, Morocco</span>
-            </div>
+      <article class="card reveal" data-cat="mobile">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div><h3>Flutter Mobile Apps</h3><div class="sub">iOS &amp; Android</div></div>
         </div>
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/mohamed-hraich-c24661175"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/mhhraich"><i class="fab fa-github"></i></a>
+        <p>Cross-platform apps for iOS and Android connected to Odoo and REST back-ends, including the Intel Space business app and an e-commerce app with catalog, cart, payment and order tracking.</p>
+        <div class="tags"><span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">REST</span><span class="tag">Odoo JSON-RPC</span></div>
+      </article>
+
+      <article class="card reveal" data-cat="devops">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-server"></i></div>
+          <div><h3>Self-hosted Production Platform</h3><div class="sub">Oracle Cloud · Docker · Caddy</div></div>
         </div>
-    </section>
+        <p>A single Caddy reverse proxy serving HTTPS for every app on one Oracle Linux server (Medix, Rental Car, agency sites), with automatic Let's Encrypt and on-demand certificates for clinic domains, plus CI/CD pipelines with backups and rollback.</p>
+        <div class="tags"><span class="tag">Docker Compose</span><span class="tag">Caddy</span><span class="tag">Oracle Linux</span><span class="tag">GitHub Actions</span></div>
+      </article>
 
-    <footer>
-        <p>&copy; 2023 Mohamed Hraich. Built with passion and dedication.</p>
-    </footer>
+      <article class="card reveal" data-cat="saas">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-cart-shopping"></i></div>
+          <div><h3>E-commerce Back-end &amp; Admin Dashboards</h3><div class="sub">Spring · Angular · Go</div></div>
+        </div>
+        <p>E-commerce REST API with Spring, product management services, an admin dashboard in JavaScript and Angular/NgRx front-ends, plus a Go REST API.</p>
+        <div class="tags"><span class="tag">Spring</span><span class="tag">Angular</span><span class="tag">NgRx</span><span class="tag">Go</span></div>
+      </article>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+    </div>
+  </div>
+</section>
 
-        // Initialize particles.js
-        particlesJS.load('particles-js', 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/demo/particles.json', function() {
-            console.log('Particles.js loaded');
-        });
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// experience</div>
+      <h2>Professional experience</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="card">
+          <div class="tl-meta"><h3>Odoo &amp; Mobile Consultant · MUMUSO Morocco</h3><span class="date">Mar 2024 — Present</span></div>
+          <ul>
+            <li>Advanced development in Python, XML and JavaScript within Odoo.</li>
+            <li>Built a multi-device biometric attendance system (C# + WebSocket) syncing 16 terminals with Odoo.</li>
+            <li>Designed and integrated RESTful APIs; optimized business processes with custom modules.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="card">
+          <div class="tl-meta"><h3>Odoo &amp; Mobile Developer · IT ADVISOR</h3><span class="date">Feb 2021 — Mar 2024</span></div>
+          <ul>
+            <li>Developed and maintained Odoo modules for clients across many industries.</li>
+            <li>Cross-platform mobile apps with Flutter for iOS and Android.</li>
+            <li>Third-party API integrations and PrestaShop / WooCommerce customization.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="card">
+          <div class="tl-meta"><h3>Web Developer · Freelance</h3><span class="date">2019 — 2021</span></div>
+          <ul>
+            <li>Responsive websites with HTML, CSS, JavaScript and PHP.</li>
+            <li>WordPress themes/plugins and e-commerce implementations.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="card">
+          <div class="tl-meta"><h3>Independent Software Publisher</h3><span class="date">Ongoing</span></div>
+          <ul>
+            <li>Publishing commercial Odoo modules on the Odoo Apps Store (v15 → v19).</li>
+            <li>Running my own SaaS products: Medix, Rental Car, MH Paie Maroc and Kids Video Studio.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Dark mode toggle
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const icon = document.querySelector('.dark-mode-toggle i');
-            if (document.body.classList.contains('dark-mode')) {
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        }
+<section class="alt" id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// skills</div>
+      <h2>Tech stack</h2>
+    </div>
+    <div class="skills">
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-code"></i> Languages</h3><div class="pills"><span class="pill">Python</span><span class="pill">Java</span><span class="pill">JavaScript</span><span class="pill">C#</span><span class="pill">Dart</span><span class="pill">PHP</span><span class="pill">TypeScript</span><span class="pill">Go</span><span class="pill">SQL</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-layer-group"></i> ERP &amp; Back-end</h3><div class="pills"><span class="pill">Odoo 12 → 19</span><span class="pill">OWL</span><span class="pill">Spring Boot</span><span class="pill">Spring Security / JWT</span><span class="pill">REST APIs</span><span class="pill">.NET</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-mobile-screen"></i> Front-end &amp; Mobile</h3><div class="pills"><span class="pill">Flutter</span><span class="pill">Angular / NgRx</span><span class="pill">HTML / SCSS</span><span class="pill">PrestaShop</span><span class="pill">WordPress</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-server"></i> DevOps &amp; Data</h3><div class="pills"><span class="pill">Docker</span><span class="pill">Caddy</span><span class="pill">GitHub Actions</span><span class="pill">Linux</span><span class="pill">PostgreSQL</span><span class="pill">SQLite</span><span class="pill">Git</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-plug"></i> Integrations</h3><div class="pills"><span class="pill">Hikvision / biometrics</span><span class="pill">WebSocket</span><span class="pill">Shopify</span><span class="pill">WooCommerce</span><span class="pill">AI APIs (Gemini)</span></div></div>
+      <div class="card skill-group reveal"><h3><i class="fa-solid fa-language"></i> Languages spoken</h3><div class="pills"><span class="pill">Arabic — native</span><span class="pill">French — C1</span><span class="pill">English — C1</span></div></div>
+    </div>
+  </div>
+</section>
 
-        // Mobile menu toggle
-        function toggleMenu() {
-            const nav = document.getElementById('nav-links');
-            nav.classList.toggle('show');
-        }
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// education</div>
+      <h2>Education</h2>
+    </div>
+    <div class="edu">
+      <div class="card reveal"><div class="card-top"><div class="ico"><i class="fa-solid fa-graduation-cap"></i></div><div><h3>Professional Bachelor — Web &amp; Mobile Development</h3><div class="sub">University of Kénitra · 2019 – 2020</div></div></div></div>
+      <div class="card reveal"><div class="card-top"><div class="ico"><i class="fa-solid fa-laptop-code"></i></div><div><h3>Specialized Technician — Computer Development</h3><div class="sub">OFPPT · 2017 – 2019</div></div></div></div>
+      <div class="card reveal"><div class="card-top"><div class="ico"><i class="fa-solid fa-flask"></i></div><div><h3>Baccalaureate — Physical &amp; Chemical Sciences</h3><div class="sub">Lycée Al Wahda, Khenichat · 2016 – 2017</div></div></div></div>
+    </div>
+  </div>
+</section>
 
-        // Smooth scroll function
-        function smoothScroll(target) {
-            document.querySelector(target).scrollIntoView({ 
-                behavior: 'smooth',
-                block: 'start'
-            });
-            // Close mobile menu after clicking a link
-            if (window.innerWidth <= 768) {
-                document.getElementById('nav-links').classList.remove('show');
-            }
-        }
+<section class="alt contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// contact</div>
+      <h2>Let's build something together</h2>
+      <p>Need an Odoo module, a SaaS platform or a mobile app?</p>
+    </div>
+    <div class="contact-row reveal">
+      <a class="btn primary" href="mailto:mhhraich@gmail.com"><i class="fa-solid fa-envelope"></i> mhhraich@gmail.com</a>
+      <a class="btn" href="tel:+212611421020"><i class="fa-solid fa-phone"></i> +212 6 11 42 10 20</a>
+      <a class="btn" href="https://www.linkedin.com/in/mohamed-hraich-c24661175" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+      <a class="btn" href="https://github.com/mhhraich" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+  </div>
+</section>
 
-        // Typing effect
-        const text = "Full-Stack Developer | Innovating with Code & Creativity";
-        let index = 0;
-        function typeWriter() {
-            if (index < text.length) {
-                document.getElementById('typing').innerHTML = text.substring(0, index + 1) + '<span style="border-right: 2px solid white;">&nbsp;</span>';
-                index++;
-                setTimeout(typeWriter, 100);
-            } else {
-                // Once typing is complete, add blinking cursor
-                document.getElementById('typing').innerHTML = text + '<span style="border-right: 2px solid white; animation: blink 1s infinite;">&nbsp;</span>';
-            }
-        }
-        
-        // Start typing effect when page loads
-        window.addEventListener('load', typeWriter);
+<footer>
+  <div class="wrap">© <span id="year">2026</span> Mohamed Hraich · Casablanca, Morocco</div>
+</footer>
 
-        // Back to top button
-        const backToTopButton = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('active');
-            } else {
-                backToTopButton.classList.remove('active');
-            }
-        });
-        
-        backToTopButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('theme');
+  function stored(){try{return localStorage.getItem('theme')}catch(e){return null}}
+  function isDark(){var t=root.getAttribute('data-theme');return t?t==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches}
+  function icon(){btn.innerHTML=isDark()?'<i class="fa-solid fa-sun"></i>':'<i class="fa-solid fa-moon"></i>'}
+  var s=stored(); if(s) root.setAttribute('data-theme',s); icon();
+  btn.addEventListener('click',function(){var n=isDark()?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}icon()});
 
-        // Add click event to all nav links for smooth scrolling
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = this.getAttribute('href');
-                smoothScroll(target);
-            });
-        });
-    </script>
+  var links=document.getElementById('links');
+  document.getElementById('menu').addEventListener('click',function(){links.classList.toggle('open')});
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){links.classList.remove('open')})});
+
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click',function(){
+      document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('active')});
+      c.classList.add('active');
+      var f=c.dataset.f;
+      document.querySelectorAll('#project-grid .card').forEach(function(card){
+        var show=f==='all'||card.dataset.cat.split(' ').indexOf(f)>-1;
+        card.classList.toggle('hidden',!show);
+        if(show) card.classList.add('in');
+      });
+    });
+  });
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  } else document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+})();
+</script>
 </body>
 </html>
