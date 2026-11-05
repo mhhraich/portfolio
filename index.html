@@ -112,6 +112,8 @@ section.alt{background:var(--bg-alt)}
 .status.store{color:var(--accent);background:var(--accent-soft)}
 .status.prod{color:var(--accent-2);background:color-mix(in srgb,var(--accent-2) 14%,transparent)}
 .hidden{display:none!important}
+.price{margin-left:auto;font-weight:800;font-size:1.05rem;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:10px;white-space:nowrap}
+.sub code,.card code{font-family:"JetBrains Mono",monospace;font-size:.8em}
 
 /* experience timeline */
 .timeline{position:relative;padding-left:28px}
@@ -150,6 +152,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
     <a href="#top" class="brand">Mohamed<span>.</span>Hraich</a>
     <div class="links" id="links">
       <a href="#projects">Projects</a>
+      <a href="#odoo-apps">Odoo Apps</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
@@ -168,7 +171,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
       <div>
         <span class="eyebrow"><i class="fa-solid fa-circle"></i> Open to freelance &amp; consulting</span>
         <h1>Full-Stack &amp; Odoo developer building <span class="grad">SaaS products</span> that ship.</h1>
-        <p class="lead">I'm Mohamed Hraich, a developer based in Casablanca with 5+ years of experience. I build Odoo modules (v12 → v19) sold on the Odoo Apps Store, Spring Boot + web SaaS platforms, Flutter mobile apps, and integrations with biometric devices and e-commerce platforms.</p>
+        <p class="lead">I'm Mohamed Hraich, a developer based in Casablanca with 5+ years of experience. I build Odoo modules (v12 → v19), with 7 paid apps on the Odoo Apps Store, Spring Boot + web SaaS platforms, Flutter mobile apps, and integrations with biometric devices and e-commerce platforms.</p>
         <div class="btns">
           <a class="btn primary" href="#projects"><i class="fa-solid fa-rocket"></i> See my projects</a>
           <a class="btn" href="https://www.linkedin.com/in/mohamed-hraich-c24661175" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
@@ -184,7 +187,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
       <div class="stat"><b>5+</b><span>years of experience</span></div>
       <div class="stat"><b>12 → 19</b><span>Odoo versions mastered</span></div>
       <div class="stat"><b>4</b><span>SaaS products launched</span></div>
-      <div class="stat"><b>3</b><span>commercial Odoo modules</span></div>
+      <div class="stat"><b>7</b><span>apps on the Odoo Apps Store</span></div>
     </div>
   </div>
 </header>
@@ -215,11 +218,15 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
         </div>
         <p>A SaaS where each doctor gets their own workspace and custom domain, with patients, appointments and a secretary role. Staff provision new doctors, assign domains and start/stop workspaces from an admin dashboard.</p>
         <ul>
-          <li>Per-doctor domains with on-demand HTTPS certificates</li>
-          <li>Patient self-registration with email confirmation, roles for doctor / secretary / admin</li>
-          <li>Deployed with Docker Compose on Oracle Linux behind a Caddy reverse proxy</li>
+          <li><b>Clinical file:</b> consultations, prescriptions with drug-safety check, allergies, medical history, dental chart (FDI), lab &amp; imaging orders, vaccinations (Morocco PNI schedule), pregnancy follow-up, treatment plans</li>
+          <li><b>Practice management:</b> appointments, waitlist that auto-fills cancelled slots, billing with partial payments, inventory, reports (cash, unpaid invoices, no-show rate), audit trail</li>
+          <li><b>Patient portal:</b> sign-up by email or Google, appointment requests, invoices, secure messaging</li>
+          <li><b>Communication:</b> in-app audio calls (WebRTC), Web Push notifications, SMS &amp; WhatsApp reminders (Twilio / Meta Cloud API)</li>
+          <li><b>Security:</b> JWT with refresh tokens, two-step login (authenticator app or email), Google sign-in, roles doctor / secretary / admin</li>
+          <li><b>AI assistant:</b> structures consultation notes and summarizes a patient's history</li>
+          <li><b>SaaS:</b> per-doctor workspaces and custom domains with on-demand HTTPS, self-service free trial, Docker deployment on Oracle Cloud</li>
         </ul>
-        <div class="tags"><span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">Docker</span><span class="tag">Multi-tenant</span></div>
+        <div class="tags"><span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">Docker</span><span class="tag">WebRTC</span><span class="tag">Twilio</span><span class="tag">Multi-tenant</span></div>
       </article>
 
       <article class="card reveal" data-cat="saas">
@@ -228,7 +235,12 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
           <div><h3>Rental Car — SaaS for Rental Agencies</h3><div class="sub">Agency workspaces + public booking site</div></div>
           <span class="status live">Live</span>
         </div>
-        <p>Each car rental agency gets a private workspace to manage its fleet and bookings; customers search and rent cars by city, category and transmission from the public site.</p>
+        <p>Each car rental agency gets a private workspace to manage its fleet and bookings; customers search and rent cars by city, category, transmission and price from the public site.</p>
+        <ul>
+          <li>Agency self sign-up, public agency page, staff accounts</li>
+          <li>Fleet: up to 12 photos per car, odometer history, car papers (insurance, vignette, technical inspection, registration) with expiry alerts</li>
+          <li>Strict tenant isolation, JWT auth, CI/CD that builds a Docker image and deploys on merge</li>
+        </ul>
         <div class="card-links"><a href="https://rental.mhhraich.online" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> rental.mhhraich.online</a></div>
         <div class="tags"><span class="tag">Spring Boot 4</span><span class="tag">Spring Security</span><span class="tag">JWT</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></div>
       </article>
@@ -256,38 +268,6 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
         <p>Type any idea and the AI writes a script, then renders a 1080p kids video with animated 3D emoji characters, subtitles, a child narrator voice, music and sound effects. Supports 11 languages including Moroccan Darija, and can publish to YouTube on autopilot.</p>
         <div class="card-links"><a href="https://github.com/mhhraich/kids-video-studio" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Project page</a></div>
         <div class="tags"><span class="tag">Python</span><span class="tag">Gemini AI</span><span class="tag">TTS</span><span class="tag">Video rendering</span><span class="tag">YouTube API</span></div>
-      </article>
-
-      <article class="card reveal" data-cat="odoo">
-        <div class="card-top">
-          <div class="ico"><i class="fa-solid fa-table-list"></i></div>
-          <div><h3>One2many &amp; Many2many Toolbox</h3><div class="sub">mh_x2many_toolbox · Odoo 16 → 19</div></div>
-          <span class="status store">Apps Store</span>
-        </div>
-        <p>Adds a search box, a line counter and a full-screen button above every one2many / many2many list — sale, purchase, invoice, BoM and picking lines.</p>
-        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=mh_x2many_toolbox" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> Odoo Apps Store</a></div>
-        <div class="tags"><span class="tag">Odoo OWL</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">SCSS</span></div>
-      </article>
-
-      <article class="card reveal" data-cat="odoo">
-        <div class="card-top">
-          <div class="ico"><i class="fa-solid fa-file-invoice"></i></div>
-          <div><h3>Morocco Payment Delays Declaration</h3><div class="sub">l10n_ma_payment_delay_dgi · Odoo 16 → 19</div></div>
-          <span class="status store">Apps Store</span>
-        </div>
-        <p>Builds the quarterly/annual DGI payment delays declaration (Loi 69-21) from vendor bills and payments, with estimated fines and XML (EDI), Excel and PDF exports for SIMPL.</p>
-        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=l10n_ma_payment_delay_dgi" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> Odoo Apps Store</a></div>
-        <div class="tags"><span class="tag">Odoo</span><span class="tag">Python</span><span class="tag">Accounting</span><span class="tag">XML EDI</span></div>
-      </article>
-
-      <article class="card reveal" data-cat="odoo">
-        <div class="card-top">
-          <div class="ico"><i class="fa-solid fa-ship"></i></div>
-          <div><h3>Customs Duty by HS Code — Landed Costs</h3><div class="sub">landed_cost_customs_duty · Odoo 15 → 19</div></div>
-          <span class="status store">Odoo module</span>
-        </div>
-        <p>Import customs duty per product (HS code tariffs, preferential origin rates), customs declaration on receipts and automatic landed-cost split by duty. Community &amp; Enterprise.</p>
-                <div class="tags"><span class="tag">Odoo</span><span class="tag">Inventory</span><span class="tag">Landed costs</span></div>
       </article>
 
       <article class="card reveal" data-cat="integration">
@@ -350,7 +330,96 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
   </div>
 </section>
 
-<section id="experience">
+<section id="odoo-apps">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="kicker">// odoo apps store</div>
+      <h2>Apps published on the Odoo Apps Store</h2>
+      <p>Paid modules I develop, sell and maintain across Odoo versions, each with a dedicated branch per version. Bug fixes are free; support at <a href="mailto:mhhraich@gmail.com">mhhraich@gmail.com</a>.</p>
+    </div>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-table-list"></i></div>
+          <div><h3>One2many &amp; Many2many Toolbox</h3><div class="sub"><code>mh_x2many_toolbox</code> · Productivity</div></div>
+          <span class="price">$24</span>
+        </div>
+        <p>Long sale orders, invoices, BoMs or transfers are painful in the small list inside the form. This app adds a toolbar above every one2many / many2many list — no configuration.</p>
+        <ul><li>Search the lines; accents and case ignored, all pages searched</li><li>Line counter: “35 lines” or “3 / 35 lines” while searching</li><li>Full-screen mode (Esc to exit) with normal editing and reordering</li><li>Works in every app, only depends on <code>web</code></li></ul>
+        <div class="tags"><span class="tag">Odoo 16 · 17 · 18 · 19</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=mh_x2many_toolbox" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-file-invoice"></i></div>
+          <div><h3>Morocco — Payment Delays Declaration (Loi 69-21, SIMPL)</h3><div class="sub"><code>l10n_ma_payment_delay_dgi</code> · Accounting / Localization</div></div>
+          <span class="price">$129</span>
+        </div>
+        <p>Moroccan companies above 2M MAD turnover must file every quarter the supplier invoices paid late. Missing declarations cost 5,000 to 250,000 MAD. This app builds the declaration in one click.</p>
+        <ul><li>Detects vendor bills paid late or unpaid past the legal term (60 / 120 days / sector)</li><li>Handles partial payments, credit notes, litigation</li><li>Estimated fine (Bank Al-Maghrib rate + 0.85 % / month), no double counting</li><li>Exports: zipped XML for SIMPL EDI, Excel, PDF for the accountant; multi-company</li></ul>
+        <div class="tags"><span class="tag">Odoo 16 · 17 · 18 · 19</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=l10n_ma_payment_delay_dgi" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-ship"></i></div>
+          <div><h3>Customs Duty by HS Code — Landed Costs</h3><div class="sub"><code>landed_cost_customs_duty</code> · Inventory</div></div>
+          <span class="price">$119</span>
+        </div>
+        <p>Puts the real import duty of each product into its stock cost — no more Excel. Every HS code has its own rate, and trade agreements give preferential rates per origin.</p>
+        <ul><li>HS code tariff table (import from spreadsheet), preferential rates by origin with validity dates</li><li>Customs declaration (DUM / DAU / SAD) in one click from receipts, CIF value at customs exchange rate</li><li>Duty, other import taxes and import VAT per line; one-click landed cost</li><li>New split methods “By Customs Duty / Other Taxes / Customs Value”, duties pivot analysis, PDF</li></ul>
+        <div class="tags"><span class="tag">Odoo 15 · 16 · 17 · 18 · 19</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=landed_cost_customs_duty" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-clock-rotate-left"></i></div>
+          <div><h3>One2many &amp; Many2many Tracking</h3><div class="sub"><code>One2many_tracking</code> · Discuss / Audit</div></div>
+          <span class="price">$70</span>
+        </div>
+        <p>Odoo's chatter does not track changes inside one2many and many2many fields. This app logs every line added, modified or removed, with who and when.</p>
+        <ul><li>Complete audit trail of related records in the chatter</li><li>Shows who changed which line and when</li></ul>
+        <div class="tags"><span class="tag">Odoo 15 · 16 · 17 · 18 · 19</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=One2many_tracking" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-cash-register"></i></div>
+          <div><h3>POS Open Cash Drawer</h3><div class="sub"><code>pos_open_cash_drawer</code> · Point of Sale</div></div>
+          <span class="price">$100</span>
+        </div>
+        <p>Lets cashiers open the cash drawer directly from the product screen of the Point of Sale, without making a sale.</p>
+        <ul><li>Button on the POS product screen</li><li>No sale or receipt needed to open the drawer</li></ul>
+        <div class="tags"><span class="tag">Odoo 17</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=pos_open_cash_drawer" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-qrcode"></i></div>
+          <div><h3>Webcam QR Code &amp; Barcode Scanner</h3><div class="sub"><code>webcam_qrcode_scan</code> · Sales / Tools</div></div>
+          <span class="price">$50</span>
+        </div>
+        <p>Scan barcodes and QR codes with the device camera (laptop webcam or phone) straight into Odoo fields — no hardware scanner needed.</p>
+        <ul><li>Scanner widget for any char field</li><li>Camera dialog powered by html5-qrcode</li><li>Works on desktop and mobile browsers</li></ul>
+        <div class="tags"><span class="tag">Odoo 14 · 15 · 16 · 17</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=webcam_qrcode_scan" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+      <article class="card reveal">
+        <div class="card-top">
+          <div class="ico"><i class="fa-solid fa-list-check"></i></div>
+          <div><h3>Real-Time Total of Selected Records</h3><div class="sub"><code>tree_count_selected</code> · Productivity</div></div>
+          <span class="price">$25</span>
+        </div>
+        <p>Shows live totals of the records you select in any list view, so users see sums instantly without exporting to Excel.</p>
+        <ul><li>Totals update as you tick records</li><li>Works on every list view</li></ul>
+        <div class="tags"><span class="tag">Odoo 13 · 15 · 16 · 17</span></div>
+        <div class="card-links"><a href="https://apps.odoo.com/apps/modules/browse?search=tree_count_selected" target="_blank" rel="noopener"><i class="fa-solid fa-store"></i> View on Odoo Apps Store</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="experience">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">// experience</div>
@@ -390,7 +459,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
         <div class="card">
           <div class="tl-meta"><h3>Independent Software Publisher</h3><span class="date">Ongoing</span></div>
           <ul>
-            <li>Publishing commercial Odoo modules on the Odoo Apps Store (v15 → v19).</li>
+            <li>Publishing 7 paid apps on the Odoo Apps Store, maintained for Odoo 13 → 19.</li>
             <li>Running my own SaaS products: Medix, Rental Car, MH Paie Maroc and Kids Video Studio.</li>
           </ul>
         </div>
@@ -399,7 +468,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
   </div>
 </section>
 
-<section class="alt" id="skills">
+<section id="skills">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">// skills</div>
@@ -416,7 +485,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
   </div>
 </section>
 
-<section id="education">
+<section class="alt" id="education">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">// education</div>
@@ -430,7 +499,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font
   </div>
 </section>
 
-<section class="alt contact" id="contact">
+<section class="contact" id="contact">
   <div class="wrap">
     <div class="sec-head reveal">
       <div class="kicker">// contact</div>
